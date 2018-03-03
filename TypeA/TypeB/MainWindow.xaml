@@ -1,0 +1,32 @@
+﻿<Window x:Class="TypeB.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TypeB"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="320">
+    <Grid VerticalAlignment="Top" HorizontalAlignment="Left">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="150"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="100"/>
+        </Grid.ColumnDefinitions>
+        <Button Grid.Column="0" Grid.Row="0" Width="80" Height="25" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Stop" Command="{Binding StopCommand}"/>
+        <Button Grid.Column="2" Grid.Row="0" Width="80" Height="25" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Start" Command="{Binding StartCommand}"/>
+        <TextBox Grid.Column="1" Grid.Row="0" Width="80" Height="25" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding NewPortEntered}" />
+        <ListView Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Height="120" Width="280" SelectedItem="{Binding SelectedPort}" ItemsSource="{Binding ItemPort}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn  Header="Port" Width="50" DisplayMemberBinding="{Binding ItemPort.port}" />
+                    <GridViewColumn  Header="Amount Per Sec" Width="50" DisplayMemberBinding="{Binding ItemPort.amount}" />
+
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</Window>
